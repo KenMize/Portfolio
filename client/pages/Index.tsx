@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart, Code, Cpu, GraduationCap, Layout, Lightbulb, MessageSquare, Rocket, Users, Zap, Shield, Lock, Search, Terminal, Activity, FileCheck, Globe, Briefcase } from "lucide-react";
+import { ArrowRight, BarChart, Code, Cpu, GraduationCap, Layout, Lightbulb, MessageSquare, Rocket, Users, Zap, Shield, Lock, Search, Terminal, Activity, FileCheck, Globe, Briefcase, ClipboardCheck, History, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -38,10 +38,10 @@ export default function Index() {
                 Senior Security Engineer & Strategic Leader
               </Badge>
               <h1 className="text-4xl md:text-7xl font-extrabold tracking-tighter max-w-4xl leading-[1.1]">
-                Securing the Future through <span className="text-primary">Strategic</span> Engineering & <span className="text-primary">Adaptive</span> Leadership
+                Leading Through <span className="text-primary">Governance</span>, <span className="text-primary">Identity</span> & Risk <span className="text-primary">Strategy</span>
               </h1>
               <p className="text-muted-foreground text-lg md:text-xl max-w-2xl">
-                15+ years of experience in application security, cloud architecture, IAM, and leading high-performance engineering teams.
+                15+ years of experience specializing in GRC, IAM, and Vulnerability Management. Expert at bridging technical security operations with strategic business objectives.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <Button size="lg" className="gap-2 px-8">
@@ -61,7 +61,7 @@ export default function Index() {
             <div className="space-y-4 mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">Professional Journey</h2>
               <p className="text-muted-foreground text-center max-w-2xl mx-auto">
-                A track record of building and securing scalable systems at industry-leading organizations.
+                A track record of leading complex security initiatives and managing high-performance teams.
               </p>
             </div>
             <div className="max-w-4xl mx-auto space-y-8">
@@ -70,15 +70,15 @@ export default function Index() {
                   company: "Fortellar",
                   role: "Senior Security Engineer",
                   period: "Present",
-                  description: "Leading application security, cloud architecture, and Identity & Access Management (IAM) initiatives. Designing and implementing robust security controls for enterprise-scale platforms.",
-                  skills: ["Cloud Security", "IAM", "Risk Assessment", "NIST Framework"]
+                  description: "Leading hands-on Identity & Access Management (IAM), GRC, and Vulnerability Management initiatives. Designing and implementing robust security controls and frameworks for enterprise platforms.",
+                  skills: ["IAM", "GRC Strategy", "Vulnerability Assessment", "NIST 800-53"]
                 },
                 {
-                  company: "Previous Tech Enterprise",
-                  role: "Lead Security Architect",
+                  company: "Strategic Security Firm",
+                  role: "Lead Security Strategist",
                   period: "3 Years",
-                  description: "Architected end-to-end security solutions for multi-cloud environments. Mentored junior engineers and led cross-functional security incident response teams.",
-                  skills: ["AppSec", "Kubernetes Security", "CI/CD Security", "Penetration Testing"]
+                  description: "Developed and managed comprehensive security governance programs. Oversaw vulnerability remediation efforts and provided strategic direction for IAM transformations.",
+                  skills: ["Policy Development", "Risk Management", "Compliance", "IAM Architecture"]
                 }
               ].map((job, i) => (
                 <div key={i} className="relative pl-8 border-l-2 border-primary/20 pb-8 last:pb-0">
@@ -111,7 +111,7 @@ export default function Index() {
               <div className="space-y-4 max-w-xl">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Strategic Leadership</h2>
                 <p className="text-muted-foreground text-lg">
-                  Empowering security teams through visionary planning, risk-informed decision making, and deep mentorship.
+                  Empowering teams through visionary planning, risk-informed decision making, and deep mentorship.
                 </p>
               </div>
               <Button variant="ghost" className="gap-2 group">
@@ -122,38 +122,38 @@ export default function Index() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  title: "Security Team Mentorship",
-                  description: "Developing specialized talent in application security and incident response through personalized growth plans.",
-                  icon: GraduationCap,
+                  title: "CI/CD Governance",
+                  description: "Providing strategic oversight and management of secure software delivery lifecycles from a governance perspective.",
+                  icon: Settings,
                   color: "bg-blue-500/10 text-blue-600"
                 },
                 {
-                  title: "Strategic Risk Assessment",
-                  description: "Aligning technical risk management with business goals to ensure sustainable security posture.",
+                  title: "GRC Strategy",
+                  description: "Hands-on development of governance frameworks and risk management strategies to ensure organizational compliance.",
                   icon: BarChart,
                   color: "bg-emerald-500/10 text-emerald-600"
                 },
                 {
                   title: "NIST Framework Implementation",
-                  description: "Standardizing security controls and compliance across diverse organizational units.",
+                  description: "Standardizing security controls and compliance across diverse organizational units using the NIST 800-53 framework.",
                   icon: FileCheck,
                   color: "bg-amber-500/10 text-amber-600"
                 },
                 {
-                  title: "Incident Response Leadership",
-                  description: "Leading complex investigations and response efforts with a focus on containment and long-term remediation.",
-                  icon: Activity,
+                  title: "Security Team Mentorship",
+                  description: "Developing specialized talent in GRC and IAM through personalized growth plans and consistent coaching.",
+                  icon: GraduationCap,
                   color: "bg-purple-500/10 text-purple-600"
                 },
                 {
-                  title: "Cross-functional Collaboration",
-                  description: "Bridging communication between engineering, legal, and product teams to integrate security into every stage.",
-                  icon: MessageSquare,
+                  title: "Vulnerability Management Ops",
+                  description: "Directly managing vulnerability scanning, prioritization, and remediation programs across the enterprise.",
+                  icon: Search,
                   color: "bg-rose-500/10 text-rose-600"
                 },
                 {
-                  title: "Adaptive Security Strategy",
-                  description: "Evolving security programs to keep pace with emerging threats and changing business landscapes.",
+                  title: "Adaptive Risk Management",
+                  description: "Evolving risk strategies to keep pace with emerging threats and changing business requirements.",
                   icon: Zap,
                   color: "bg-cyan-500/10 text-cyan-600"
                 }
@@ -180,33 +180,33 @@ export default function Index() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Expertise</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Hands-on Expertise</h2>
                   <p className="text-muted-foreground text-lg">
-                    Hands-on capabilities in cloud security, identity systems, and vulnerability management.
+                    Direct experience in Identity management, Governance, and Vulnerability lifecycle management.
                   </p>
                 </div>
                 
                 <div className="space-y-6">
                   {[
                     {
-                      label: "Cloud Security Architecture",
-                      value: 96,
-                      icon: Globe
-                    },
-                    {
                       label: "Identity & Access Management (IAM)",
-                      value: 94,
+                      value: 98,
                       icon: Lock
                     },
                     {
+                      label: "Governance, Risk & Compliance (GRC)",
+                      value: 96,
+                      icon: ClipboardCheck
+                    },
+                    {
                       label: "Vulnerability & Patch Management",
-                      value: 92,
+                      value: 95,
                       icon: Search
                     },
                     {
-                      label: "Application Security (SAST/DAST)",
-                      value: 90,
-                      icon: Terminal
+                      label: "Security Program Management",
+                      value: 92,
+                      icon: Layout
                     }
                   ].map((skill, i) => (
                     <div key={i} className="space-y-2">
@@ -231,22 +231,22 @@ export default function Index() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4 pt-8">
                   <div className="p-6 rounded-2xl bg-slate-900 text-white space-y-2">
-                    <h3 className="text-xl font-bold">AppSec</h3>
-                    <p className="text-slate-400 text-sm">Burp Suite, OWASP Top 10, Code Review, Secret Management.</p>
+                    <h3 className="text-xl font-bold">IAM</h3>
+                    <p className="text-slate-400 text-sm">Okta, Azure AD, ForgeRock, SSO, Multi-Factor Authentication.</p>
                   </div>
                   <div className="p-6 rounded-2xl bg-primary text-primary-foreground space-y-2">
-                    <h3 className="text-xl font-bold">Cloud</h3>
-                    <p className="text-primary-foreground/70 text-sm">AWS Security Hub, GuardDuty, Azure AD, GCP Security.</p>
+                    <h3 className="text-xl font-bold">GRC</h3>
+                    <p className="text-primary-foreground/70 text-sm">NIST 800-53, ISO 27001, SOC2, HIPAA, Policy Dev.</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="p-6 rounded-2xl bg-secondary space-y-2 border">
-                    <h3 className="text-xl font-bold text-secondary-foreground">Compliance</h3>
-                    <p className="text-muted-foreground text-sm">SOC2, HIPAA, NIST 800-53, GDPR, ISO 27001.</p>
+                    <h3 className="text-xl font-bold text-secondary-foreground">Vulnerability</h3>
+                    <p className="text-muted-foreground text-sm">Qualys, Tenable/Nessus, Rapid7, CVE Prioritization.</p>
                   </div>
                   <div className="p-6 rounded-2xl bg-slate-100 space-y-2 border">
-                    <h3 className="text-xl font-bold text-slate-900">Automation</h3>
-                    <p className="text-slate-600 text-sm">Python Scripting, Terraform, Security as Code, SIEM.</p>
+                    <h3 className="text-xl font-bold text-slate-900">Program Ops</h3>
+                    <p className="text-slate-600 text-sm">CI/CD Governance, Security Metrics, Reporting, KPIs.</p>
                   </div>
                 </div>
               </div>
@@ -258,9 +258,9 @@ export default function Index() {
         <section id="projects" className="py-24 bg-slate-900 text-white">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Security Initiatives & Projects</h2>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Impact & Strategic Results</h2>
               <p className="text-slate-400 max-w-2xl mx-auto">
-                Real-world solutions delivered to solve complex security and infrastructure challenges.
+                Real-world solutions delivered to solve complex identity and governance challenges.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -268,16 +268,16 @@ export default function Index() {
                 {
                   title: "Enterprise IAM Transformation",
                   category: "Identity Systems",
-                  impact: "Reduced credential-based risk by 80%",
-                  description: "Redesigned identity management for 5,000+ employees using modern SSO and multi-factor authentication protocols.",
-                  tags: ["Okta", "Azure AD", "OAuth2"]
+                  impact: "Reduced identity risk by 80%",
+                  description: "Redesigned identity management for 5,000+ employees using modern SSO and lifecycle management protocols.",
+                  tags: ["Okta", "Azure AD", "Lifecycle Mgmt"]
                 },
                 {
-                  title: "Cloud Native Security Baseline",
-                  category: "Infrastructure",
-                  impact: "Achieved SOC2 compliance in record time",
-                  description: "Developed and automated security baselines for Kubernetes clusters and microservices architecture.",
-                  tags: ["Kubernetes", "Terraform", "Falco"]
+                  title: "Strategic Compliance Baseline",
+                  category: "Governance",
+                  impact: "Accelerated audit readiness by 40%",
+                  description: "Standardized security controls across the organization based on the NIST framework for multi-cloud environments.",
+                  tags: ["NIST 800-53", "Compliance", "Risk Assessment"]
                 }
               ].map((project, i) => (
                 <div key={i} className="group p-8 rounded-3xl bg-slate-800 border border-slate-700 hover:border-primary/50 transition-all">
@@ -303,9 +303,9 @@ export default function Index() {
         {/* CTA Section */}
         <section className="py-24 border-t relative overflow-hidden">
           <div className="container px-4 md:px-6 text-center space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Strategy Meet Execution</h2>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Strategic Security Operations</h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-              I'm open to discussing security strategy, technical mentorship, or architectural consulting.
+              I'm open to discussing GRC strategy, IAM architecture, or technical security mentorship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="px-12">
