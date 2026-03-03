@@ -5,7 +5,7 @@ import {
   Shield, Lock, ClipboardCheck, Search, Cloud, Users, ArrowRight, CheckCircle2,
   Network, Server, Cpu, Layers, Layout, HardDrive, Smartphone, Globe, Workflow,
   Activity, Briefcase, Database, FileCheck, Code, FileCode, Landmark, BarChart3,
-  GitPullRequest, Zap, Radio, Settings, Terminal, ShieldCheck, Box
+  GitPullRequest, Zap, Radio, Settings, Terminal, ShieldCheck, Box, Rocket
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
