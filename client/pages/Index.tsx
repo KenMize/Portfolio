@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart, GraduationCap, Layout, MessageSquare, Users, Zap, Shield, Lock, Search, FileCheck, Globe, ClipboardCheck, Settings, Target, Scale, ShieldCheck, Cpu, Rocket, Briefcase, Award, TrendingUp, History } from "lucide-react";
+import { ArrowRight, BarChart, GraduationCap, Layout, MessageSquare, Users, Zap, Shield, Lock, Search, FileCheck, Globe, ClipboardCheck, Settings, Target, Scale, ShieldCheck, Cpu, Rocket, Briefcase, Award, TrendingUp, History, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
