@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Shield, Lock, ClipboardCheck, Search, Cloud, Users, ArrowRight, CheckCircle2,
   Network, Server, Cpu, Layers, Layout, HardDrive, Smartphone, Globe, Workflow,
-  FileCheck, Activity, Briefcase
+  Activity, Briefcase, Database, FileCheck, Code
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -185,8 +185,6 @@ function ArchitectureDiagram({ diagram }: { diagram: any }) {
 }
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-
   return (
     <div className="container px-4 md:px-6 py-12 space-y-12">
       <div className="space-y-4 text-center max-w-3xl mx-auto">
