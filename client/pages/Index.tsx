@@ -1,34 +1,13 @@
-import { ArrowRight, BarChart, Code, Cpu, GraduationCap, Layout, Lightbulb, MessageSquare, Rocket, Users, Zap, Shield, Lock, Search, Terminal, Activity, FileCheck, Globe, Briefcase, ClipboardCheck, History, Settings } from "lucide-react";
+import { ArrowRight, BarChart, GraduationCap, Layout, MessageSquare, Users, Zap, Shield, Lock, Search, FileCheck, Globe, ClipboardCheck, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
-    <div className="flex flex-col min-h-screen bg-background selection:bg-primary/10 font-inter">
-      {/* Navigation */}
-      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Shield className="text-primary-foreground h-5 w-5" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">Kenneth Mize</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <a href="#experience" className="text-sm font-medium hover:text-primary transition-colors">Experience</a>
-            <a href="#leadership" className="text-sm font-medium hover:text-primary transition-colors">Leadership</a>
-            <a href="#technical" className="text-sm font-medium hover:text-primary transition-colors">Technical</a>
-            <a href="#projects" className="text-sm font-medium hover:text-primary transition-colors">Projects</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" className="hidden sm:flex">Contact</Button>
-            <Button size="sm">Download Resume</Button>
-          </div>
-        </div>
-      </header>
-
-      <main className="flex-1 pt-16">
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32 overflow-hidden border-b">
           <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
@@ -44,12 +23,16 @@ export default function Index() {
                 15+ years of experience specializing in GRC, IAM, and Vulnerability Management. Expert at bridging technical security operations with strategic business objectives.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button size="lg" className="gap-2 px-8">
-                  View Experience <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="gap-2 px-8">
-                  Security Portfolio <Shield className="h-4 w-4" />
-                </Button>
+                <a href="#experience">
+                  <Button size="lg" className="gap-2 px-8 w-full sm:w-auto">
+                    View Experience <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </a>
+                <Link to="/projects">
+                  <Button size="lg" variant="outline" className="gap-2 px-8 w-full sm:w-auto">
+                    Full Project Portfolio <Shield className="h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -114,9 +97,11 @@ export default function Index() {
                   Empowering teams through visionary planning, risk-informed decision making, and deep mentorship.
                 </p>
               </div>
-              <Button variant="ghost" className="gap-2 group">
-                View Management Philosophy <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link to="/projects">
+                <Button variant="ghost" className="gap-2 group">
+                  View Strategic Initiatives <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -254,48 +239,21 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Featured Projects Section */}
+        {/* Projects Preview Section (CTA) */}
         <section id="projects" className="py-24 bg-slate-900 text-white">
           <div className="container px-4 md:px-6">
-            <div className="text-center space-y-4 mb-16">
+            <div className="max-w-3xl mx-auto text-center space-y-8">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Impact & Strategic Results</h2>
-              <p className="text-slate-400 max-w-2xl mx-auto">
-                Real-world solutions delivered to solve complex identity and governance challenges.
+              <p className="text-slate-400 text-lg md:text-xl leading-relaxed">
+                From enterprise IAM transformations to global vulnerability management programs, I deliver security initiatives that reduce risk and accelerate business growth.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                {
-                  title: "Enterprise IAM Transformation",
-                  category: "Identity Systems",
-                  impact: "Reduced identity risk by 80%",
-                  description: "Redesigned identity management for 5,000+ employees using modern SSO and lifecycle management protocols.",
-                  tags: ["Okta", "Azure AD", "Lifecycle Mgmt"]
-                },
-                {
-                  title: "Strategic Compliance Baseline",
-                  category: "Governance",
-                  impact: "Accelerated audit readiness by 40%",
-                  description: "Standardized security controls across the organization based on the NIST framework for multi-cloud environments.",
-                  tags: ["NIST 800-53", "Compliance", "Risk Assessment"]
-                }
-              ].map((project, i) => (
-                <div key={i} className="group p-8 rounded-3xl bg-slate-800 border border-slate-700 hover:border-primary/50 transition-all">
-                  <div className="flex justify-between items-start mb-6">
-                    <Badge variant="outline" className="text-primary border-primary/30 uppercase tracking-widest text-[10px]">{project.category}</Badge>
-                    <span className="text-xs font-mono text-emerald-400 font-bold">{project.impact}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-slate-400 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 rounded-full bg-slate-700 text-xs font-medium text-slate-300">#{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              <div className="pt-4">
+                <Link to="/projects">
+                  <Button size="lg" className="px-12 group">
+                    Explore All Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -308,38 +266,16 @@ export default function Index() {
               I'm open to discussing GRC strategy, IAM architecture, or technical security mentorship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="px-12">
+              <Button size="lg" className="px-12 w-full sm:w-auto">
                 Get in Touch
               </Button>
-              <Button size="lg" variant="outline" className="px-12">
+              <Button size="lg" variant="outline" className="px-12 w-full sm:w-auto">
                 LinkedIn Profile
               </Button>
             </div>
           </div>
         </section>
       </main>
-
-      <footer className="py-12 border-t bg-slate-50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-primary" />
-              <span className="text-sm font-bold tracking-tight">Kenneth Mize</span>
-            </div>
-            <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Kenneth Mize. Professional Portfolio.
-            </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Terminal className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Users className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
