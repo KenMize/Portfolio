@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Shield, Lock, ClipboardCheck, Search, Cloud, Users, ArrowRight, CheckCircle2,
   Network, Server, Cpu, Layers, Layout, HardDrive, Smartphone, Globe, Workflow,
-  Activity, Briefcase, Database, FileCheck, Code
+  Activity, Briefcase, Database, FileCheck, Code, FileCode
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
