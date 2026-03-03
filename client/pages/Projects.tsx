@@ -4,7 +4,8 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Shield, Lock, ClipboardCheck, Search, Cloud, Users, ArrowRight, CheckCircle2,
   Network, Server, Cpu, Layers, Layout, HardDrive, Smartphone, Globe, Workflow,
-  Activity, Briefcase, Database, FileCheck, Code, FileCode
+  Activity, Briefcase, Database, FileCheck, Code, FileCode, Landmark, BarChart3,
+  GitPullRequest, Zap, Radio, Settings, Terminal, ShieldCheck, Box
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 
 const projects = [
   {
@@ -28,14 +35,22 @@ const projects = [
     details: "This multi-year project involved consolidating multiple legacy identity stores into a unified Okta-based system integrated with Azure AD. We automated user lifecycle events (Joiner, Mover, Leaver) which significantly reduced manual provisioning errors and orphan accounts.",
     approach: "The transformation followed a three-phase approach: Discovery (mapping legacy dependencies), Foundation (setting up core Okta/Azure sync), and Migration (transitioning applications by priority). We emphasized Zero Trust principles, ensuring that every access request was verified.",
     orgImpact: "Eliminated 100% of 'shadow' admin accounts and reduced onboarding time from 3 days to 4 hours. Improved compliance reporting efficiency by 60% through centralized logging.",
-    architecture: {
-      description: "A hybrid-cloud identity mesh connecting on-prem legacy systems with modern SaaS applications via an Okta/Azure AD gateway.",
+    programDiagram: {
+      description: "Program-level flow focusing on organizational alignment and business value.",
+      nodes: [
+        { label: "Business Stakeholders", type: "org", icon: Users },
+        { label: "IAM Policy & Governance", type: "policy", icon: ShieldCheck },
+        { label: "Automated Lifecycle", type: "hub", icon: Workflow },
+        { label: "Cost & Risk Savings", type: "value", icon: BarChart3 }
+      ]
+    },
+    technicalDiagram: {
+      description: "Technical view of system integrations and identity flow.",
       nodes: [
         { label: "On-Prem AD", type: "system", icon: Server },
-        { label: "Identity Sync Hub", type: "process", icon: Workflow },
-        { label: "Cloud IAM (Okta)", type: "hub", icon: Lock },
-        { label: "SaaS Apps", type: "system", icon: Globe },
-        { label: "End User Devices", type: "endpoint", icon: Smartphone }
+        { label: "Azure AD Connect", type: "process", icon: GitPullRequest },
+        { label: "Okta Identity Cloud", type: "hub", icon: Lock },
+        { label: "SaaS & Cloud Apps", type: "system", icon: Globe }
       ]
     }
   },
@@ -50,14 +65,22 @@ const projects = [
     details: "Designed and implemented a unified compliance framework that mapped requirements from SOC2, HIPAA, and ISO 27001 to a set of core internal controls. This provided a single source of truth for all security audits.",
     approach: "I led a cross-functional task force to identify overlapping requirements across different compliance frameworks. We built a 'Control Once, Comply Many' model, centralizing evidence collection into a GRC platform (ZenGRC) and automating 30% of control monitoring via API integrations.",
     orgImpact: "Reduced manual audit preparation workload by 1,200 hours annually. Secured a clean SOC 2 Type II report on the first attempt after program overhaul.",
-    architecture: {
-      description: "Unified compliance engine that maps regulatory requirements to shared internal controls.",
+    programDiagram: {
+      description: "High-level governance structure and reporting flow.",
       nodes: [
-        { label: "Frameworks (NIST, SOC2)", type: "system", icon: ClipboardCheck },
-        { label: "GRC Control Mapping", type: "process", icon: Layers },
-        { label: "Shared Controls", type: "hub", icon: Shield },
-        { label: "Automated Evidence", type: "endpoint", icon: FileCheck },
-        { label: "Continuous Monitoring", type: "endpoint", icon: Search }
+        { label: "Regulatory Bodies", type: "org", icon: Landmark },
+        { label: "Risk Management Council", type: "policy", icon: ShieldCheck },
+        { label: "Unified Controls", type: "hub", icon: Layers },
+        { label: "Audit Assurance", type: "value", icon: ClipboardCheck }
+      ]
+    },
+    technicalDiagram: {
+      description: "System architecture for automated compliance monitoring.",
+      nodes: [
+        { label: "GRC Platform", type: "hub", icon: Database },
+        { label: "Evidence Collector", type: "process", icon: Zap },
+        { label: "Cloud Audit APIs", type: "system", icon: Radio },
+        { label: "Real-time Dashboards", type: "system", icon: Layout }
       ]
     }
   },
@@ -72,14 +95,22 @@ const projects = [
     details: "Revamped the vulnerability management program by shifting from simple 'scan-and-patch' to a risk-based prioritization approach. Implemented automated scanning for all perimeter assets and integrated results into IT ticketing systems for streamlined remediation.",
     approach: "We implemented the Tenable.io platform and integrated it with ServiceNow. I established a risk-scoring algorithm that combined CVE severity with asset criticality and threat intelligence. This allowed remediation teams to focus on the top 5% of risks that accounted for 80% of actual exposure.",
     orgImpact: "Decreased mean time to remediate (MTTR) critical vulnerabilities by 75%. Provided executive leadership with real-time risk dashboards, improving resource allocation for infrastructure security.",
-    architecture: {
-      description: "Distributed scanning architecture with centralized risk scoring and automated ticket generation.",
+    programDiagram: {
+      description: "Vulnerability lifecycle from discovery to executive reporting.",
       nodes: [
-        { label: "Global Asset Inventory", type: "system", icon: Database },
-        { label: "Distributed Scanners", type: "endpoint", icon: Search },
-        { label: "Risk Scoring Engine", type: "process", icon: Cpu },
-        { label: "ServiceNow Integration", type: "hub", icon: HardDrive },
-        { label: "Remediation Teams", type: "endpoint", icon: Users }
+        { label: "Asset Owners", type: "org", icon: Users },
+        { label: "Risk Prioritization", type: "policy", icon: BarChart3 },
+        { label: "Remediation Workflow", type: "hub", icon: Workflow },
+        { label: "Risk Mitigation", type: "value", icon: Shield }
+      ]
+    },
+    technicalDiagram: {
+      description: "Distributed scanner architecture and automation pipeline.",
+      nodes: [
+        { label: "Global Scanners", type: "system", icon: Search },
+        { label: "Vulnerability Engine", type: "hub", icon: Cpu },
+        { label: "CMDB Integration", type: "process", icon: Database },
+        { label: "Remediation Tickets", type: "system", icon: HardDrive }
       ]
     }
   },
@@ -94,14 +125,22 @@ const projects = [
     details: "Established a 'Security-as-Code' governance model where all cloud accounts and Kubernetes clusters were required to adhere to pre-defined security baselines. Monitored compliance via automated reporting and regular audits.",
     approach: "I defined the 'Golden Baseline' for AWS and EKS environments, focusing on IAM least privilege, encryption, and network segmentation. We used Terraform and AWS Config to enforce these standards, ensuring that any drift was automatically detected and reported for remediation.",
     orgImpact: "Reduced misconfiguration-related security incidents by 90%. Enabled a 40% faster 'Time-to-Cloud' for new product teams through pre-approved, secure infrastructure templates.",
-    architecture: {
-      description: "Automated governance loop enforcing security-as-code across multi-cloud infrastructure.",
+    programDiagram: {
+      description: "Governance-as-code program lifecycle.",
       nodes: [
-        { label: "Infrastructure as Code", type: "system", icon: Code },
-        { label: "Baseline Engine", type: "process", icon: Layout },
-        { label: "Multi-Cloud Assets", type: "hub", icon: Cloud },
-        { label: "Policy Enforcement", type: "endpoint", icon: Shield },
-        { label: "Drift Detection", type: "endpoint", icon: Activity }
+        { label: "Product Engineering", type: "org", icon: Users },
+        { label: "Security Policy Board", type: "policy", icon: ShieldCheck },
+        { label: "Governance Guardrails", type: "hub", icon: Zap },
+        { label: "Deployment Velocity", type: "value", icon: Rocket }
+      ]
+    },
+    technicalDiagram: {
+      description: "Cloud-native security automation architecture.",
+      nodes: [
+        { label: "Infrastructure as Code", type: "process", icon: Code },
+        { label: "Golden Baselines", type: "hub", icon: Shield },
+        { label: "Multi-Cloud Assets", type: "system", icon: Cloud },
+        { label: "Compliance Monitoring", type: "system", icon: Activity }
       ]
     }
   },
@@ -116,14 +155,22 @@ const projects = [
     details: "Created a standardized vendor assessment process that included security questionnaires, SOC2 report reviews, and risk scoring. This allowed the business to make risk-informed decisions about new partnerships.",
     approach: "We streamlined the vendor onboarding process by integrating security assessments directly into the procurement workflow. I developed a tiered risk model (High, Medium, Low) based on the data types and access levels required, ensuring that high-risk vendors received deep-dive technical reviews.",
     orgImpact: "Reduced vendor risk assessment turnaround time by 50% while improving the depth of security reviews. Successfully mitigated three potential supply chain breaches through proactive auditing.",
-    architecture: {
-      description: "Risk-based vendor evaluation pipeline integrated with procurement workflows.",
+    programDiagram: {
+      description: "Third-party risk program from procurement to contract.",
       nodes: [
-        { label: "Procurement Request", type: "system", icon: Briefcase },
-        { label: "Tiering Logic", type: "process", icon: Layers },
-        { label: "Vendor Security Assessment", type: "hub", icon: Search },
-        { label: "Residual Risk Review", type: "endpoint", icon: ClipboardCheck },
-        { label: "Final Approval", type: "endpoint", icon: CheckCircle2 }
+        { label: "Procurement/Legal", type: "org", icon: Briefcase },
+        { label: "Vendor Risk Tiering", type: "policy", icon: Layers },
+        { label: "Security Review", type: "hub", icon: Search },
+        { label: "Contractual Terms", type: "value", icon: ClipboardCheck }
+      ]
+    },
+    technicalDiagram: {
+      description: "TPRM pipeline and risk scoring system.",
+      nodes: [
+        { label: "Vendor Questionnaire", type: "system", icon: FileCode },
+        { label: "Risk Engine", type: "process", icon: Cpu },
+        { label: "Vendor DB", type: "hub", icon: Database },
+        { label: "Continuous Monitoring", type: "system", icon: Activity }
       ]
     }
   },
@@ -138,46 +185,78 @@ const projects = [
     details: "Implemented a 'just-in-time' access model for system administrators, ensuring that privileged credentials were never stored locally and all sessions were monitored and recorded.",
     approach: "I led the rollout of CyberArk across the server and network infrastructure. This involved establishing a vaulting strategy for sensitive accounts and implementing session recording for all administrative activity. We phased the rollout, starting with Domain Admins and expanding to application service accounts.",
     orgImpact: "Achieved 100% vaulting of critical administrative credentials. Dramatically simplified forensic investigations through centralized, searchable session logs.",
-    architecture: {
-      description: "Secure credential vaulting and session isolation for privileged administrative access.",
+    programDiagram: {
+      description: "Strategic rollout plan and privilege oversight.",
       nodes: [
-        { label: "Admin User", type: "endpoint", icon: Users },
-        { label: "PAM Gateway", type: "hub", icon: Network },
-        { label: "Credential Vault", type: "process", icon: Lock },
-        { label: "Target Systems", type: "system", icon: Server },
-        { label: "Audit & Recordings", type: "endpoint", icon: Activity }
+        { label: "Executive Leadership", type: "org", icon: Users },
+        { label: "Least Privilege Policy", type: "policy", icon: ShieldCheck },
+        { label: "Privileged Workflow", type: "hub", icon: Workflow },
+        { label: "Audit & Compliance", type: "value", icon: Landmark }
+      ]
+    },
+    technicalDiagram: {
+      description: "Technical PAM architecture and session gateway.",
+      nodes: [
+        { label: "Admin Endpoint", type: "system", icon: Smartphone },
+        { label: "PAM Proxy Gateway", type: "hub", icon: Network },
+        { label: "Secure Vault", type: "process", icon: Lock },
+        { label: "Target Infrastructure", type: "system", icon: Server }
       ]
     }
   }
 ];
 
-function ArchitectureDiagram({ diagram }: { diagram: any }) {
+function ArchitectureDiagram({ diagram, color = "primary" }: { diagram: any, color?: string }) {
   return (
-    <div className="bg-slate-50 border rounded-xl p-8 my-6">
-      <div className="flex flex-col items-center justify-center space-y-8">
-        <p className="text-sm font-medium text-slate-500 text-center mb-4">{diagram.description}</p>
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
+    <div className="bg-slate-50 border rounded-2xl p-6 md:p-8 animate-in fade-in duration-500">
+      <p className="text-sm font-semibold text-slate-500 text-center mb-8 uppercase tracking-wider">
+        {diagram.description}
+      </p>
+      <div className="relative">
+        {/* Connection Line */}
+        <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 hidden md:block" />
+        
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
           {diagram.nodes.map((node: any, i: number) => (
-            <div key={i} className="flex items-center gap-4">
-              <div className="flex flex-col items-center space-y-2">
-                <div className={`
-                  w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-sm border transition-all duration-300 hover:scale-110
-                  ${node.type === 'hub' ? 'bg-primary text-primary-foreground border-primary scale-110 z-10 shadow-lg' :
-                    node.type === 'system' ? 'bg-white border-slate-200 text-slate-600' :
-                    node.type === 'process' ? 'bg-slate-800 text-white border-slate-700' :
-                    'bg-slate-100 text-slate-500 border-slate-200'}
-                `}>
-                  <node.icon className="h-6 w-6 md:h-8 md:h-8" />
-                </div>
-                <span className="text-[10px] md:text-xs font-bold text-center w-20 md:w-24 leading-tight">{node.label}</span>
+            <div key={i} className="flex flex-col items-center space-y-4 w-full md:w-auto">
+              <div className={`
+                w-16 h-16 md:w-20 md:h-20 rounded-3xl flex items-center justify-center shadow-md border-2 transition-all duration-300 hover:scale-110 group
+                ${node.type === 'hub' ? 'bg-primary text-primary-foreground border-primary shadow-primary/20 scale-110' : 
+                  node.type === 'org' ? 'bg-indigo-600 text-white border-indigo-500' :
+                  node.type === 'policy' ? 'bg-amber-500 text-white border-amber-400' :
+                  node.type === 'value' ? 'bg-emerald-600 text-white border-emerald-500' :
+                  node.type === 'process' ? 'bg-slate-800 text-white border-slate-700' :
+                  'bg-white border-slate-200 text-slate-600'}
+              `}>
+                <node.icon className="h-8 w-8 md:h-10 md:w-10 group-hover:rotate-6 transition-transform" />
               </div>
-              {i < diagram.nodes.length - 1 && (
-                <div className="text-slate-300 flex items-center justify-center">
-                   <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-                </div>
-              )}
+              <div className="bg-white px-3 py-1.5 rounded-full border shadow-sm">
+                <span className="text-[11px] md:text-xs font-extrabold text-center block leading-tight whitespace-nowrap">
+                  {node.label}
+                </span>
+              </div>
             </div>
           ))}
+        </div>
+      </div>
+      
+      {/* Legend */}
+      <div className="mt-12 flex flex-wrap justify-center gap-4 border-t pt-6">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-primary" />
+          <span className="text-[10px] font-bold text-slate-500 uppercase">Strategic Hub</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-indigo-600" />
+          <span className="text-[10px] font-bold text-slate-500 uppercase">Organizational</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-slate-800" />
+          <span className="text-[10px] font-bold text-slate-500 uppercase">Systems</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-emerald-600" />
+          <span className="text-[10px] font-bold text-slate-500 uppercase">Value/Results</span>
         </div>
       </div>
     </div>
@@ -255,19 +334,39 @@ export default function Projects() {
                   </p>
                 </section>
 
-                <section className="space-y-4">
-                  <h3 className="text-xl font-bold flex items-center gap-2">
-                    <Layout className="h-5 w-5 text-primary" />
-                    Technical Solution & Approach
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
+                <section className="space-y-6">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <h3 className="text-xl font-bold flex items-center gap-2">
+                      <Layout className="h-5 w-5 text-primary" />
+                      Solution & Architecture Views
+                    </h3>
+                  </div>
+                  
+                  <p className="text-slate-600 leading-relaxed mb-6">
                     {project.approach}
                   </p>
                   
-                  <ArchitectureDiagram diagram={project.architecture} />
+                  <Tabs defaultValue="program" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2 mb-4">
+                      <TabsTrigger value="program" className="flex items-center gap-2">
+                        <Users className="h-4 w-4" />
+                        Program Level
+                      </TabsTrigger>
+                      <TabsTrigger value="technical" className="flex items-center gap-2">
+                        <Terminal className="h-4 w-4" />
+                        Technical View
+                      </TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="program" className="mt-0">
+                      <ArchitectureDiagram diagram={project.programDiagram} />
+                    </TabsContent>
+                    <TabsContent value="technical" className="mt-0">
+                      <ArchitectureDiagram diagram={project.technicalDiagram} color="slate" />
+                    </TabsContent>
+                  </Tabs>
                 </section>
 
-                <section className="space-y-3 p-6 bg-slate-900 rounded-2xl text-white">
+                <section className="space-y-3 p-6 bg-slate-900 rounded-2xl text-white shadow-xl">
                   <h3 className="text-xl font-bold flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-emerald-400" />
                     Organizational Impact & ROI
